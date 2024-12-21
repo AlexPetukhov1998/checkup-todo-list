@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1> Авторизируйтесь на сайте</h1>
+        <input type="text" name="login" id="login" placeholder = "Введите логин">
+        <br>
+        <input type="password" name="password" id="password" placeholder = "Введите пароль">
+        <br>
+        <button type="submit"> Отправить </button>
+        <ul>
+            <li><a href="#">Забыли пароль?</a></li>
+            <li><a href="#">Регистрация</a></li>
+        </ul>
+
+    </div>
+    <br>    
+    <br>
+    <div class="container">
+        <h1> Ваши задачи </h1>
+        <ul id="tasks"> 
+            <li> Задача №1 </li>
+            <li> Задача №2 </li>
+            <li> Задача №3 </li>
+        </ul>
+        <input type="text" name="newTask" id="newTask" placeholder = "Введите задачу">
+        <br>
+        <button type="submit" id="addTask"> Добавить задачу </button>
+        <br>
+        <button type="submit" id="deleteTask"> Удалить задачу </button>
+        <script src="app.js"></script>
+    </div>
+</body>
+</html>

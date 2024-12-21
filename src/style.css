@@ -1,0 +1,37 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(224, 245, 184);
+    margin: 0; /* Убираем стандартные отступы body */
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(63, 189, 70);
+    border-radius: 3%;
+    width: fit-content;
+    padding: 1%;
+    
+}
+.container h1 {
+
+    text-align: center;
+    width: auto;
+
+}
+input, button, ul {
+    padding: 2%;
+    border-radius: 3%;
+}
