@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="task.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>Менеджер задач</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo-container">
+                <img class="logo" src="../photo/ai.jpg" alt="Логотип" style="width: 8vw; height: auto;">
+                <!-- <img class="logo" src="../photo/i.webp" alt="Логотип" style="width: 6vw; height: auto;"> -->
+            </div>
+            <div class="nav-buttons">
+                <button>Ваши задачи</button>
+                <button>Заметки</button>
+                <button>Календарь</button>
+                <button>Здесь строка поиска</button>
+            </div>
+        </nav>
+    </header>
+    <main class="tasks-section">
+        
+            <h1> Ваши задачи </h1>
+            <div class="tasks-container">
+                <ol class="tasks" id="tasks"></ol>
+            </div>
+            <input type="text" id="NewTask" placeholder="Напишите задачу">
+            <button id="addTask">Добваить задачу</button>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Автор Петухов А.В.</p>
+            <p>Сайт создан в качестве тренировачного проекта</p>
+            <p>Email: hedin2014@mail.ru</p>
+            <p>Телефон: +7-982-368-92-48</p>
+        </div>
+    </footer>
+</body>
+</html>
