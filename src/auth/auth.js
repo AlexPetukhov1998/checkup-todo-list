@@ -32,14 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     password: password,
                 }),
             });
-            console.log(res.status);
         } catch (error) {
-            console.error('Произошла ошибка:', error);
         }
-        console.log(res.status);
         if (res.status === 201) {
             const json = await res.json();
-            console.log(json);
 
             alert('Пользователь авторизирован');
             window.location.href = '../task/task.html';

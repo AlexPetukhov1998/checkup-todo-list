@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }),
             });
         } catch (error) {
-            console.error(error);
         }
         switch (res.status) {
             case 201:

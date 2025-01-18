@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const TaskList = document.getElementById('tasks');
 
     function createTask() {
-        console.log('В функции');
 
         const task = document.createElement('li');
 
