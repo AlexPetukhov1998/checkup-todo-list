@@ -8,18 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return emailPattern.test(value) || phonePattern.test(value);
     }
 
-    async function onSubmit() {
+    async function onSubmit(event) {
+        event.preventDefault();
         const log = document.getElementById('login').value;
 
         if (!validateInput(log)) {
-            alert(
-                'Пожалуйста, введите корректный адрес электронной почты или номер телефона.'
-            );
             return; // Предотвращает отправку формы
         }
 
         const login = document.getElementById('login').value.trim();
         const password = document.getElementById('password').value.trim();
+
         try {
             const res = await fetch(API_URL, {
                 method: 'POST',
@@ -32,20 +31,27 @@ document.addEventListener('DOMContentLoaded', function () {
                     password: password,
                 }),
             });
-        } catch (error) {
-        }
-        if (res.status === 201) {
-            const json = await res.json();
+            switch (res.status) {
+                case 201:
+                    const json = await res.json();
 
-            alert('Пользователь авторизирован');
-            window.location.href = '../task/task.html';
-        } else if (res.status === 401) {
-            alert('Пользователь не найден');
-        } else if (res.status === 403) {
-            alert('Аутентификация отклонена');
-        } else {
-            alert('провал');
+                    alert('Пользователь авторизирован');
+                    window.location.href = '../task/task.html';
+                    break;
+                case 401:
+                    alert('Пользователь не зарегистрирован');
+                    break;
+                case 403:
+                    alert('Аутентификация отклонена');
+                    break;
+                default:
+                    alert('провал');
+                    break;
+            }
+        } catch (error) {
+            console.log(error);
         }
+        console.log(res.status);
     }
 
     document.getElementById('enter').addEventListener('click', onSubmit);

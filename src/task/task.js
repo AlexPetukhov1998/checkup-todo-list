@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const TaskList = document.getElementById('tasks');
 
     function createTask() {
-
         const task = document.createElement('li');
 
         const taskText = document.getElementById('NewTask').value;
