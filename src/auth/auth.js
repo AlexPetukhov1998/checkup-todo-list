@@ -10,14 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function onSubmit(event) {
         event.preventDefault();
-        const log = document.getElementById('login').value;
-
-        if (!validateInput(log)) {
-            return; // Предотвращает отправку формы
-        }
 
         const login = document.getElementById('login').value.trim();
         const password = document.getElementById('password').value.trim();
+
+        // if (!validateInput(login) || !validateInput(password)) {
+        //     return; // Предотвращает отправку формы
+        // }
 
         try {
             const res = await fetch(API_URL, {
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
             switch (res.status) {
                 case 201:
                     const json = await res.json();
-
                     alert('Пользователь авторизирован');
                     window.location.href = '../task/task.html';
                     break;
@@ -48,10 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('провал');
                     break;
             }
-        } catch (error) {
-            console.log(error);
-        }
-        console.log(res.status);
+        } catch (error) {}
     }
 
     document.getElementById('enter').addEventListener('click', onSubmit);

@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const login = document.getElementById('login').value.trim();
         const password = document.getElementById('password').value.trim();
+        // if (!validateInput(login) || !validateInput(password)) {
+        //     return; // Предотвращает отправку формы
+        // }
 
         try {
             const res = await fetch(API_URL, {
@@ -18,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     password: password,
                 }),
             });
-            console.log(res.status);
             switch (res.status) {
                 case 201:
                     alert('регистрация прошла успешно');
@@ -29,9 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 default:
                     alert('Ошибка связи');
             }
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     }
 
     document.getElementById('enter').addEventListener('click', onSubmit);
