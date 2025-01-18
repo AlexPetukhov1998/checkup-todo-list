@@ -13,43 +13,6 @@ h1 {
     font-size: 4vh; /* 4% от высоты окна просмотра */
 }
 
-.auth-form, .tasks-section {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto; /* Ширина контейнера в процентах от экрана */
-    height: auto; /* Высота контейнера в процентах от экрана */
-    background-color: #b9c7ee;
-    padding: 2vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.auth-form * {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.input {
-    width: 80%; /* Ширина поля ввода */
-    height: auto;
-    margin: 1vh 0;
-    padding: 1vh;
-    border-radius: 0.5rem;
-}
-
-.auth-form input {
-    padding-left: 10px;
-    font-size: 110%; /* Добавляем отступ справа, если необходимо */
-}
-
 button {
     font-size: 100%;
     padding: 1vh;
@@ -67,6 +30,77 @@ button:hover {
     background-color: #dee5ec;
 }
 
+input {
+    padding-left: 10px;
+    font-size: 110%; /* Добавляем отступ справа, если необходимо */
+}
+
+ul {
+    width: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 1vh 0;
+    counter-reset: item; /* Сброс счетчика */
+}
+
+li:not(.nav-buttons > li) {
+    background-color: #fff;
+    margin: 0.5vh 0;
+    padding: 1vh;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    counter-increment: item;
+}
+
+.tasks li::before {
+    content: counter(item) ') '; /* Отображение счетчика */
+    font-weight: bold;
+    margin-right: 1vw; /* Отступ между номером и текстом */
+}
+
+.auth-form,
+.tasks-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto; /* Ширина контейнера в процентах от экрана */
+    height: auto; /* Высота контейнера в процентах от экрана */
+    background-color: #b9c7ee;
+    padding: 2vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-form *,
+.tasks-section * {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input,
+#NewTask {
+    width: auto; /* Ширина поля ввода */
+    height: auto;
+    margin: 1vh 0;
+    padding: 1vh;
+    border-radius: 0.5rem;
+}
+
+.auth-form input,
+#NewTask {
+    padding-left: 10px;
+    font-size: 110%; /* Добавляем отступ справа, если необходимо */
+}
+
 .nav {
     position: absolute;
     top: 0;
@@ -81,12 +115,16 @@ button:hover {
     margin-right: 2vw;
 }
 
- .nav-buttons {
+.nav-buttons {
     display: flex;
     justify-content: space-between;
     width: auto;
+}
 
-} 
+.logo {
+    width: 8vw;
+    height: auto;
+}
 
 .logo-container {
     display: flex;
@@ -98,6 +136,7 @@ button:hover {
     width: 1vw;
     height: 1vh;
 }
+
 .footer {
     background-color: #f0f0f0;
     padding: 20px;
@@ -115,28 +154,11 @@ button:hover {
     gap: 10px;
 }
 
-.footer-content p {
+.footer__content p {
     margin: 0;
     font-size: 2.5vh;
 }
-.auth-form *, .tasks-section * {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.input, #NewTask {
-    width: auto; /* Ширина поля ввода */
-    height: auto;
-    margin: 1vh 0;
-    padding: 1vh;
-    border-radius: 0.5rem;
-}
-
-.auth-form input, #NewTask {
-    padding-left: 10px;
-    font-size: 110%; /* Добавляем отступ справа, если необходимо */
-}
 .tasks {
     width: auto;
     list-style-type: none;
@@ -152,17 +174,14 @@ button:hover {
     border-radius: 0.5rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     counter-increment: item;
 }
- .tasks li button{
+
+.tasks li button {
     margin: 0 1vw;
-} 
-.tasks li::before {
-    content: counter(item) ") "; /* Отображение счетчика */
-    font-weight: bold;
-    margin-right: 1vw; /* Отступ между номером и текстом */
 }
+
 .tasks li input {
     flex: 1;
     padding: 0.5vh 1vh;
