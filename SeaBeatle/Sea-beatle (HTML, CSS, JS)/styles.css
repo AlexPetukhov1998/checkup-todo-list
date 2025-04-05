@@ -1,0 +1,297 @@
+﻿body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-color: #f4f4f9; */
+  background-image: url(../../photo/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+header {
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: left;
+  padding-left: 20px;
+  align-items: left;
+  margin: 0;
+}
+
+select {
+  background-color: #468c95;
+  color: white;
+  border: 1px solid #366f7d;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+select:hover {
+  background-color: #366f7d;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 10px;
+  background-color: #468c95;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: Lato;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+#game-status {
+  background-color: #468c95;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 60%;
+  min-width: 20%;
+  margin: 1% auto;
+  font-size: 20px;
+}
+
+#game-status::before {
+  content: "Статус игры:";
+  margin-right: 10px;
+}
+
+#overlay {
+  width: auto;
+  margin: 1% auto;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  text-align: center;
+}
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#intro h1 {
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: clamp(1em, 5vw, 2em);
+  text-align: center;
+}
+
+#intro p:not(#rul) {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.8;
+  margin: auto;
+  width: 150px;
+  max-width: 700px;
+  text-align: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.rules-trigger {
+  color: #468c95;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.rules-trigger:hover {
+  color: #2c6f72;
+}
+
+.rules {
+  display: none;
+  margin-top: 20px;
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border: 1px solid #468c95;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333333;
+  background-image: linear-gradient(to right, #468c95, #2c6f72);
+  color: white;
+}
+
+.rules h3 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.rules ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.rules ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#player-board-grid, #enemy-board-grid {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(10, auto);
+  gap: 1px;
+  width: auto;
+  height: auto;
+  justify-content: left;
+  justify-items: center;
+  align-items: center;
+}
+
+#enemy-board-grid {
+  padding-left: 5%;
+}
+
+#player-board-grid {
+  padding-right: 5%;
+}
+
+#player-board-grid div, #enemy-board-grid div {
+  background-color: #47ade7;
+  border: 1px solid #b9c3d8;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+#enemy-board-grid div[name="0"].ship, #player-board-grid div[name="0"].ship, #player-board-grid div[name="1"].ship {
+  background-image: url('photo/ship.png');
+  border: 1px solid #004d40;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+#player-board-grid div[name="1"].miss, #enemy-board-grid div[name="1"].miss {
+  background-color: #47ade7;
+  border: 1px solid #a3d3da;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  box-sizing: border-box;
+  opacity: 0.5;
+}
+
+#player-board-grid div[name="1"].kill, #enemy-board-grid div[name="1"].kill {
+  background-image: url('photo/kill.png');
+  border: 1px solid #b71c1c;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.message-box {
+  position: absolute;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.message-box.show {
+  opacity: 1;
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+}
+ .chapter-title {
+  background-color: #468c95; 
+  width: 100%; color: white; 
+  padding: 1%;
+  border-bottom: 2px solid black;
+ }
+ .chapter{
+  border: 2px solid black;
+ }
+ .link {
+  text-decoration: underline;
+  color: blue;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #468c95;
+  cursor: pointer;
+}
+
+.link:visited {
+  color: purple;
+}

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+    font-size: 2vh;
+}
+
+h1 {
+    font-size: 4vh; /* 4% от высоты окна просмотра */
+}
+
+button {
+    font-size: 100%;
+    padding: 1vh;
+    width: auto; /* Ширина кнопки */
+    height: auto;
+    border-radius: 0.3rem;
+    border: none;
+    box-sizing: border-box; /* Включаем внутренние отступы и границы в общую ширину и высоту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #dee5ec;
+}
+
+input {
+    padding-left: 10px;
+    font-size: 110%; /* Добавляем отступ справа, если необходимо */
+}
+
+ul {
+    width: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 1vh 0;
+    counter-reset: item; /* Сброс счетчика */
+}
+
+li:not(.nav-buttons > li) {
+    background-color: #fff;
+    margin: 0.5vh 0;
+    padding: 1vh;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    counter-increment: item;
+}
+
+.tasks li::before {
+    content: counter(item) ') '; /* Отображение счетчика */
+    font-weight: bold;
+    margin-right: 1vw; /* Отступ между номером и текстом */
+}
+
+.auth-form,
+.tasks-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto; /* Ширина контейнера в процентах от экрана */
+    height: auto; /* Высота контейнера в процентах от экрана */
+    background-color: #b9c7ee;
+    padding: 2vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-form *,
+.tasks-section * {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input,
+#NewTask {
+    width: auto; /* Ширина поля ввода */
+    height: auto;
+    margin: 1vh 0;
+    padding: 1vh;
+    border-radius: 0.5rem;
+}
+
+.auth-form input,
+#NewTask {
+    padding-left: 10px;
+    font-size: 110%; /* Добавляем отступ справа, если необходимо */
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ширина контейнера в процентах от экрана */
+    height: auto;
+    display: grid;
+    grid-template-columns: 63% 30%; /* Исправлено количество столбцов */
+    grid-template-rows: 100%; /* Упрощенное задание строки */
+    align-items: center; /* Центрирует элементы по вертикали */
+    justify-content: center; /* Центрирует элементы по горизонтали */
+    margin-right: 2vw;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+}
+
+.logo {
+    width: 8vw;
+    height: auto;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.logo img {
+    width: 1vw;
+    height: 1vh;
+}
+
+.footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer__content p {
+    margin: 0;
+    font-size: 2.5vh;
+}
+
+.tasks {
+    width: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 1vh 0;
+    counter-reset: item; /* Сброс счетчика */
+}
+
+.tasks li {
+    background-color: #fff;
+    margin: 0.5vh 0;
+    padding: 1vh;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    counter-increment: item;
+}
+
+.tasks li button {
+    margin: 0 1vw;
+}
+
+.tasks li input {
+    flex: 1;
+    padding: 0.5vh 1vh;
+    margin-left: 10px;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 110%; /* Добавляем отступ справа, если необходимо */
+    background-color: transparent;
+    outline: none;
+}
+
+.tasks li button {
+    font-size: 100%;
+    padding: 0.5vh 1vh;
+    margin-left: 10px;
+    border-radius: 0.3rem;
+    border: none;
+    box-sizing: border-box; /* Включаем внутренние отступы и границы в общую ширину и высоту */
+    cursor: pointer;
+}
+
+.tasks li button:hover {
+    background-color: #dee5ec;
+}
+
+.tasks li button.complete {
+    background-color: #4caf50; /* Зеленый цвет для кнопки "Выполнено" */
+    color: white;
+}
+
+.tasks li button.delete {
+    background-color: #f44336; /* Красный цвет для кнопки "Удалить" */
+    color: white;
+}
